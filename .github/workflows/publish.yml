@@ -1,12 +1,22 @@
 name: Publish Python Package
 
 on:
+  # trigger on:
+  #  - completed PR to main (only test)
+  #  - direct code push to the main branch (only test)
+  #  - version tag push
+  #  - manual trigger
   pull_request:
     types:
       - closed
+    branches:
+      - main
   push:
     branches:
       - main
+    tags:
+      - '*.*.*'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -39,7 +49,9 @@ jobs:
           poetry run python -m unittest
         
   publish:
-    if: github.event.pull_request.merged == true
+    if: |
+      github.ref =~ /^refs\/tags\/[0-9]+\.[0-9]+\.[0-9]+$/
+      || github.event_name == 'workflow_dispatch'
     needs: test
     runs-on: ubuntu-latest
     steps:
