@@ -30,7 +30,6 @@ jobs:
         run: |
           source .venv/bin/activate
           poetry install
-          poetry install --dev  # Install development dependencies for testing
       - name: Run tests
         run: |
           source .venv/bin/activate
@@ -55,7 +54,7 @@ jobs:
       - name: Activate virtual environment and install dependencies
         run: |
           source .venv/bin/activate
-          poetry install
+          poetry install --no-dev
       - name: Build package
         run: |
           source .venv/bin/activate
