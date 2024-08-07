@@ -70,14 +70,10 @@ jobs:
         run: |
           source .venv/bin/activate
           poetry install --no-dev
-      - name: Build package
-        run: |
-          source .venv/bin/activate
-          poetry build
-      - name: Publish to PyPI
-        env:
-          PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
-        run: |
-          source .venv/bin/activate
-          poetry config pypi-token.pypi $PYPI_API_TOKEN
-          poetry publish --build
+      - name: Build and publish to PyPI
+        uses: JRubics/poetry-publish@v2.0
+        with:
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
+          repository_url: https://test.pypi.org/
+          poetry_install_options: '--without dev'
+          poetry_publish_options: '--build'
