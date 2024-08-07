@@ -17,7 +17,7 @@ While Python natively supports basic type validation, it does not manage complex
 &emsp;5 [Developers Guide](#5-developers-guide)<br>
 &emsp;&emsp;5.1 [Contributing](#51-contributing)<br>
 &emsp;&emsp;5.2 [Architecture](#52-architecture)<br>
-&emsp;&emsp;5.3 [Known Bugs](#53-known-bugs)<br>
+&emsp;&emsp;5.3 [Known Issues](#53-known-issues)<br>
 &emsp;6 [License & Contact](#6-license--contact)<br>
 
 ## 1 Features
@@ -31,7 +31,9 @@ While Python natively supports basic type validation, it does not manage complex
 
 ## 2 Installation
 
-*TBA*
+```python
+pip install pyvalidify
+```
 
 ## 3 Supported Data Types
 
@@ -161,7 +163,7 @@ The library can be described as service based, however, it roughly follows layer
 **"core" layer:**
 - `type_hints.py` - describes supported types and defines functions for validating them.
 
-### 5.3 Known Bugs
+### 5.3 Known Issues
 
 - When describing a datatype in terms of combinations or their equivalence (see `type_description.TypeDescription.combinations()` or `type_description.TypeDescription.__hash__()`), unions are not being propagated outward within nested datatype. For example, consider a type `list[tuple[int | str]]`. It represents a list of tuples, where tuple can hold only one element each. Valid values would be `[(1,), (1,)]`, `[("1",), ("1",)]` or `[(1,), ("1",)]`. Respectively, they can be represented as types `list[tuple[int]]`, `list[tuple[str]]` or `list[tuple[int] | tuple[str]]`. The last expression is equivalent to the initial one - describes a list of mixed items. Unfortunately neither `combinations()` nor `__hash__()` method describe the the relationship. The issue is to be fixed.
 
