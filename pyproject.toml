@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyvalidify"
-version = "1.0.0"
+version = "1.0.1"
 description = "Python library for automated and manual runtime data type validation."
 authors = ["Patryk Jesionka <jesionka.patryk13@gmail.com>"]
 license = "MIT"
@@ -11,6 +11,7 @@ python = "^3.10"
 
 [tool.poetry.group.dev.dependencies]
 parameterized = "^0.9.0"
+black = "^24.8.0"
 
 [build-system]
 requires = ["poetry-core"]
