@@ -4,7 +4,12 @@ import unittest
 
 from parameterized import parameterized
 from src.pyvalidify.descriptor import Descriptor
-from src.pyvalidify.type_hints import SingleTypeInfo, SupportedBaseType, TypeInfo, WithUnion
+from src.pyvalidify.type_hints import (
+    SingleTypeInfo,
+    SupportedBaseType,
+    TypeInfo,
+    WithUnion,
+)
 
 td_ = Descriptor
 
