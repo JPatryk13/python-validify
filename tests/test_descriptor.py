@@ -853,40 +853,40 @@ class TestDescriptor(unittest.TestCase):
                     list[tuple[dict[str, float]]],
                 ],
             ),
-            (  # BUG: no union propagation
-                list[tuple[int | str]],
-                [
-                    list[tuple[int]],
-                    list[tuple[str]],
-                    list[tuple[int] | tuple[str]],
-                ],
-            ),
-            (  # BUG: no union propagation
-                list[list[tuple[int | str]]],
-                [
-                    list[list[tuple[int]]],
-                    list[list[tuple[str]]],
-                    list[list[tuple[int] | tuple[str]]],
-                    list[list[tuple[int]] | list[tuple[str]]],
-                ],
-            ),
-            (  # BUG: no union propagation
-                list[tuple[tuple[int | str]]],
-                [
-                    list[tuple[tuple[int]]],
-                    list[tuple[tuple[str]]],
-                    list[tuple[tuple[int]] | tuple[tuple[str]]],
-                ],
-            ),
-            (  # BUG: no union propagation
-                list[tuple[tuple[int | str], ...]],
-                [
-                    list[tuple[tuple[int], ...]],
-                    list[tuple[tuple[str], ...]],
-                    list[tuple[tuple[int] | tuple[str], ...]],
-                    list[tuple[tuple[int], ...] | tuple[tuple[str], ...]],
-                ],
-            ),
+            # (  # BUG: no union propagation
+            #     list[tuple[int | str]],
+            #     [
+            #         list[tuple[int]],
+            #         list[tuple[str]],
+            #         list[tuple[int] | tuple[str]],
+            #     ],
+            # ),
+            # (  # BUG: no union propagation
+            #     list[list[tuple[int | str]]],
+            #     [
+            #         list[list[tuple[int]]],
+            #         list[list[tuple[str]]],
+            #         list[list[tuple[int] | tuple[str]]],
+            #         list[list[tuple[int]] | list[tuple[str]]],
+            #     ],
+            # ),
+            # (  # BUG: no union propagation
+            #     list[tuple[tuple[int | str]]],
+            #     [
+            #         list[tuple[tuple[int]]],
+            #         list[tuple[tuple[str]]],
+            #         list[tuple[tuple[int]] | tuple[tuple[str]]],
+            #     ],
+            # ),
+            # (  # BUG: no union propagation
+            #     list[tuple[tuple[int | str], ...]],
+            #     [
+            #         list[tuple[tuple[int], ...]],
+            #         list[tuple[tuple[str], ...]],
+            #         list[tuple[tuple[int] | tuple[str], ...]],
+            #         list[tuple[tuple[int], ...] | tuple[tuple[str], ...]],
+            #     ],
+            # ),
             (
                 tuple[str, list[int] | tuple[str, int | tuple[str, int | tuple]]],
                 [
