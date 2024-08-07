@@ -3,8 +3,8 @@ from typing import Literal, cast
 import unittest
 
 from parameterized import parameterized
-from src.descriptor import Descriptor
-from src.type_hints import SingleTypeInfo, SupportedBaseType, TypeInfo, WithUnion
+from src.validify.descriptor import Descriptor
+from src.validify.type_hints import SingleTypeInfo, SupportedBaseType, TypeInfo, WithUnion
 
 td_ = Descriptor
 

@@ -2,11 +2,11 @@ from pprint import pformat
 from types import NoneType
 import unittest
 from parameterized import parameterized
-from pyparsing import Any
+from typing import Any
 
-from src.validator import describe_type, is_valid
-from src.descriptor import Descriptor
-from src.type_hints import SupportedBaseType, TypeInfo
+from src.validify.validator import describe_type, isvalid
+from src.validify.descriptor import Descriptor
+from src.validify.type_hints import SupportedBaseType, TypeInfo
 
 
 class TestValidator(unittest.TestCase):
@@ -401,7 +401,7 @@ class TestValidator(unittest.TestCase):
     )
     def test_is_valid_positive_cases(self, _: str, val: Any, _type: TypeInfo) -> None:
         self.assertTrue(
-            is_valid(val, _type),
+            isvalid(val, _type),
             pformat({"val": val, "type": _type, "describe_type": describe_type(val)}),
         )
 
@@ -433,7 +433,7 @@ class TestValidator(unittest.TestCase):
         ]
     )
     def test_is_valid_negative_cases(self, val: Any, _type: TypeInfo) -> None:
-        self.assertFalse(is_valid(val, _type), {"val": val, "type": _type})
+        self.assertFalse(isvalid(val, _type), {"val": val, "type": _type})
 
     @parameterized.expand(
         [
@@ -450,4 +450,4 @@ class TestValidator(unittest.TestCase):
     def test_is_valid_close_match_and_complex_types(
         self, val: Any, _type: TypeInfo
     ) -> None:
-        self.assertTrue(is_valid(val, _type), {"val": val, "type": _type})
+        self.assertTrue(isvalid(val, _type), {"val": val, "type": _type})

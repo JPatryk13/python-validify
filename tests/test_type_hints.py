@@ -3,8 +3,8 @@ from typing import Sequence, Callable, Any, Literal
 import random
 import unittest
 from parameterized import parameterized
-from pyparsing import Mapping
-from src.type_hints import (
+from typing import Mapping
+from src.validify.type_hints import (
     SUPPORTED_BASE_TYPES,
     is_single_type_info,
     is_type_info,

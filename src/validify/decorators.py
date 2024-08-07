@@ -3,7 +3,7 @@ import functools
 from inspect import Parameter, Signature, getmro
 from typing import Any
 
-from src.validator import describe_type, is_valid
+from .validator import describe_type, isvalid
 
 
 class cls:
@@ -14,7 +14,7 @@ class cls:
         def wrapper(self, name, val):
 
             if name in annotations.keys():
-                if not is_valid(val, annotations[name]):
+                if not isvalid(val, annotations[name]):
                     raise TypeError(
                         f"Property `{name}` is not valid. Expected `{annotations[name]}`, "
                         f"got `{describe_type(annotations[name]).raw}`"
@@ -128,7 +128,7 @@ class func:
                     else:
                         _type = param.annotation
 
-                    if not is_valid(arguments[key], _type):
+                    if not isvalid(arguments[key], _type):
                         raise TypeError(
                             f"Attribute `{key}` is not valid. Expected `{_type}`, "
                             f"got `{describe_type(arguments[key]).raw}`"

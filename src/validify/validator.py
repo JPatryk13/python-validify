@@ -1,7 +1,7 @@
 from itertools import chain
 from typing import Any
-from src.type_hints import TypeInfo
-from src.descriptor import Descriptor
+from .type_hints import TypeInfo
+from .descriptor import Descriptor
 
 
 def describe_type(__value: Any) -> Descriptor:
@@ -47,7 +47,7 @@ def describe_type(__value: Any) -> Descriptor:
         return Descriptor(_base_type)
 
 
-def is_valid(__val: Any, __type_info: TypeInfo) -> bool:
+def isvalid(__val: Any, __type_info: TypeInfo) -> bool:
 
     expected = Descriptor(__type_info)
     actual = describe_type(__val)

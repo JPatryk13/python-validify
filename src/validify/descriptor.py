@@ -9,7 +9,7 @@ from typing import (
     cast,
 )
 
-from src.type_hints import (
+from .type_hints import (
     SingleTypeInfo,
     SupportedBaseType,
     TypeInfo,
@@ -259,7 +259,7 @@ class Descriptor:
                     # generic
                     if ... in args:
                         # tuple with undefined number of elements
-                        self._raw = base[  # pyright: ignore [reportGeneralTypeIssues]
+                        self._raw = base[  # pyright: ignore [-reportGeneralTypeIssues]
                             self._args[0].raw, ...
                         ]
                         # due to some formatting issues have to do that string separately
