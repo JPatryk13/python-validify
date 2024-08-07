@@ -11,8 +11,8 @@ class TestCaseWithMocks(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         # start up patchers
-        cls.is_valid_patcher = patch("src.decorators.is_valid")
-        cls.describe_type_patcher = patch("src.decorators.describe_type")
+        cls.is_valid_patcher = patch("src.validify.decorators.isvalid")
+        cls.describe_type_patcher = patch("src.validify.decorators.describe_type")
 
         cls.is_valid_mock = cls.is_valid_patcher.start()
         cls.describe_type_mock = cls.describe_type_patcher.start()
