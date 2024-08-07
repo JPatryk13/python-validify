@@ -4,9 +4,9 @@ import unittest
 from parameterized import parameterized
 from typing import Any
 
-from src.validify.validator import describe_type, isvalid
-from src.validify.descriptor import Descriptor
-from src.validify.type_hints import SupportedBaseType, TypeInfo
+from src.pyvalidify.validator import describe_type, isvalid
+from src.pyvalidify.descriptor import Descriptor
+from src.pyvalidify.type_hints import SupportedBaseType, TypeInfo
 
 
 class TestValidator(unittest.TestCase):

@@ -4,7 +4,7 @@ from typing import Any, Generator
 import unittest
 from unittest.mock import patch
 
-from src.validify.decorators import cls, func
+from src.pyvalidify.decorators import cls, func
 
 
 class TestCaseWithMocks(unittest.TestCase):

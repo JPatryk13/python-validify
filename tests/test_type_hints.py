@@ -4,7 +4,7 @@ import random
 import unittest
 from parameterized import parameterized
 from typing import Mapping
-from src.validify.type_hints import (
+from src.pyvalidify.type_hints import (
     SUPPORTED_BASE_TYPES,
     is_single_type_info,
     is_type_info,
