@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "validify"
+name = "python-validify"
 version = "1.0.0"
 description = "Python library for automated and manual runtime data type validation."
 authors = ["Patryk Jesionka <jesionka.patryk13@gmail.com>"]
